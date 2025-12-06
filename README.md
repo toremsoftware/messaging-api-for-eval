@@ -4,15 +4,13 @@ Una API de mensajería básica desarrollada con **TypeScript**, Node.js y Expres
 
 ## 🚀 Características
 
-- **TypeScript** con tipos estrictos y compilación
-- **ESLint + Prettier** para calidad y formato de código
 - **Autenticación JWT** con credenciales fijas
 - **Envío de mensajes de texto** con respuesta automática
 - **Envío de mensajes con imagen** con respuesta automática
-- **Paginación de mensajes** (10 por página, de más nuevo a más viejo)
-- **WebSockets en tiempo real** para notificaciones instantáneas
+- **Paginación de mensajes**
+- **WebSockets**
 - **Base de datos JSON** (sin dependencias externas)
-- **CORS habilitado** para desarrollo frontend
+- **CORS habilitado**
 
 ## 📋 Requisitos Previos
 
@@ -263,31 +261,6 @@ La API incluye WebSockets para mensajes en tiempo real:
 - **Room del chat:** `chat-room`
 - **Evento de mensajes nuevos:** `new-message`
 
-### Ejemplo con cURL
-
-```bash
-# 1. Login
-curl -X POST http://localhost:3000/api/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"username":"testuser","password":"testpass123"}'
-
-# 2. Enviar mensaje (reemplaza TOKEN con el token obtenido)
-curl -X POST http://localhost:3000/api/messages/send-text \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer TOKEN" \
-  -d '{"text":"Mensaje de prueba"}'
-
-# 3. Enviar imagen
-curl -X POST http://localhost:3000/api/messages/send-image \
-  -H "Authorization: Bearer TOKEN" \
-  -F "image=@/ruta/a/imagen.jpg" \
-  -F "caption=Mi imagen de prueba"
-
-# 4. Obtener mensajes
-curl -H "Authorization: Bearer TOKEN" \
-  "http://localhost:3000/api/messages?offset=0&limit=5"
-```
-
 ## 📝 Scripts Disponibles
 
 ```bash
@@ -318,12 +291,6 @@ GET /api/messages/health
 GET /api/auth/verify
 Authorization: Bearer YOUR_JWT_TOKEN
 ```
-
-## ⚠️ Consideraciones de Seguridad
-
-- **Solo para desarrollo:** Esta API está diseñada para evaluaciones técnicas
-- **Credenciales fijas:** No usar en producción
-- **Sin encriptación de archivos:** Las imágenes se almacenan sin cifrar
 
 ## 🔧 Configuración
 
