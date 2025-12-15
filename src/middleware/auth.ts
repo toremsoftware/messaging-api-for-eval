@@ -1,8 +1,9 @@
 import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
 import { JWTPayload } from '../types';
+import { config } from '../config';
 
-const JWT_SECRET: string = process.env.JWT_SECRET || 'messaging-api-secret-key-2025';
+const { JWT_SECRET } = config;
 
 const verifyToken = (req: Request, res: Response, next: NextFunction): void => {
   const token = req.header('Authorization')?.replace('Bearer ', '');

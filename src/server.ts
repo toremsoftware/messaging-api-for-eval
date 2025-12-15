@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 
+import { config } from './config';
 import authRoutes from './routes/auth';
 import messageRoutes from './routes/messages';
 
@@ -16,8 +17,8 @@ const io = new Server(server, {
   }
 });
 
-const PORT: number = parseInt(process.env.PORT || '3000', 10);
-const JWT_SECRET: string = process.env.JWT_SECRET || 'messaging-api-secret-key-2025';
+const { PORT } = config;
+const { JWT_SECRET } = config;
 
 app.use(helmet());
 app.use(cors());
@@ -71,7 +72,7 @@ app.use((err: Error, req: Request, res: Response) => {
   console.error(err.stack);
   res.status(500).json({
     error: 'Internal server error',
-    message: process.env.NODE_ENV === 'development' ? err.message : 'Something went wrong'
+    message: err.message
   });
 });
 
