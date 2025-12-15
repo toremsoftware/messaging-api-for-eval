@@ -90,8 +90,7 @@ Content-Type: application/json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "user": {
-    "username": "testuser",
-    "id": "1"
+    "username": "testuser"
   }
 }
 ```
@@ -146,7 +145,7 @@ Authorization: Bearer YOUR_JWT_TOKEN
     "id": "1703123456789",
     "text": "Hola, este es mi mensaje",
     "type": "text",
-    "userId": "testuser",
+    "username": "testuser",
     "timestamp": "2025-12-06T15:30:00.000Z",
     "isAutoResponse": false
   }
@@ -160,7 +159,7 @@ Authorization: Bearer YOUR_JWT_TOKEN
 | `id`             | string            | Identificador único del mensaje (timestamp como string)                                          |
 | `text`           | string            | Contenido del mensaje de texto                                                                   |
 | `type`           | "text" \| "image" | Tipo de mensaje: texto o imagen                                                                  |
-| `userId`         | string            | Username del usuario que envió el mensaje                                                        |
+| `username`       | string            | Username del usuario que envió el mensaje                                                        |
 | `timestamp`      | string            | Fecha y hora del mensaje en formato ISO                                                          |
 | `isAutoResponse` | boolean           | **true** si es una respuesta automática del sistema, **false** si es un mensaje real del usuario |
 | `imageUrl`       | string?           | URL de la imagen (solo para mensajes tipo "image")                                               |
@@ -190,7 +189,7 @@ Form Data:
     "id": "1703123456790",
     "text": "Descripción opcional",
     "type": "image",
-    "userId": "testuser",
+    "username": "testuser",
     "imageUrl": "/uploads/image-1703123456790-123456789.jpg",
     "imageName": "mi_imagen.jpg",
     "imageSize": 1048576,
@@ -223,7 +222,7 @@ Authorization: Bearer YOUR_JWT_TOKEN
       "id": "1703123456790",
       "text": "Imagen recibida",
       "type": "text",
-      "userId": "system",
+      "username": "system",
       "timestamp": "2025-12-06T15:31:02.000Z",
       "isAutoResponse": true,
       "replyTo": "1703123456789"
@@ -232,7 +231,7 @@ Authorization: Bearer YOUR_JWT_TOKEN
       "id": "1703123456789",
       "text": "Hola, este es mi mensaje",
       "type": "text",
-      "userId": "testuser",
+      "username": "testuser",
       "timestamp": "2025-12-06T15:31:00.000Z",
       "isAutoResponse": false
     }

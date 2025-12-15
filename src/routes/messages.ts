@@ -55,7 +55,7 @@ const sendAutoResponse = (
     const autoMessage = addMessage({
       text: messageType === 'text' ? 'Texto recibido' : 'Imagen recibida',
       type: 'text',
-      userId: 'system',
+      username: 'system',
       isAutoResponse: true,
       replyTo: replyMessage.id
     });
@@ -75,9 +75,9 @@ router.post(
   ) => {
     try {
       const { text } = req.body;
-      const userId = req.user?.userId;
+      const username = req.user?.username;
 
-      if (!userId) {
+      if (!username) {
         res.status(401).json({
           error: 'User not authenticated',
           message: 'Invalid user token'
@@ -98,7 +98,7 @@ router.post(
       const message = addMessage({
         text: text.trim(),
         type: 'text',
-        userId,
+        username,
         isAutoResponse: false
       });
 
@@ -133,10 +133,10 @@ router.post(
     res: Response<ApiResponse<Message>>
   ) => {
     try {
-      const userId = req.user?.userId;
+      const username = req.user?.username;
       const { file } = req;
 
-      if (!userId) {
+      if (!username) {
         res.status(401).json({
           error: 'User not authenticated',
           message: 'Invalid user token'
@@ -157,7 +157,7 @@ router.post(
       const message = addMessage({
         text: req.body.caption || '', // Optional caption
         type: 'image',
-        userId,
+        username,
         imageUrl: `/uploads/${file.filename}`,
         imageName: file.originalname,
         imageSize: file.size,

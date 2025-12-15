@@ -28,10 +28,10 @@ const verifyToken = (req: Request, res: Response, next: NextFunction): void => {
   }
 };
 
-const generateToken = (userId: string): string =>
+const generateToken = (username: string): string =>
   jwt.sign(
     {
-      userId,
+      username,
       timestamp: Date.now()
     },
     JWT_SECRET,

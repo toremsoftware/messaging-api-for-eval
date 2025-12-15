@@ -8,7 +8,7 @@ export interface Message {
   id: string;
   text: string;
   type: 'text' | 'image';
-  userId: string;
+  username: string;
   timestamp: string;
   isAutoResponse: boolean;
   imageUrl?: string;
@@ -44,7 +44,6 @@ export interface LoginResponse {
   token: string;
   user: {
     username: string;
-    id: string;
   };
 }
 
@@ -63,7 +62,7 @@ export interface ApiResponse<T = any> {
 }
 
 export interface JWTPayload {
-  userId: string;
+  username: string;
   timestamp: number;
   iat?: number;
   exp?: number;

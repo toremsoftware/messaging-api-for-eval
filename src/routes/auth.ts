@@ -43,8 +43,7 @@ router.post(
       res.status(200).json({
         token,
         user: {
-          username,
-          id: '1'
+          username
         }
       });
     } catch (error) {
