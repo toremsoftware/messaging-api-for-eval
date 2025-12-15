@@ -10,6 +10,7 @@ Una API de mensajería básica desarrollada con **TypeScript**, Node.js y Expres
 - **Paginación de mensajes**
 - **WebSockets**
 - **Base de datos JSON** (sin dependencias externas)
+- **Configuración hardcodeada** (sin variables de entorno)
 - **CORS habilitado**
 
 ## 📋 Requisitos Previos
@@ -43,14 +44,7 @@ Una API de mensajería básica desarrollada con **TypeScript**, Node.js y Expres
    npm run build:watch
    ```
 
-4. **Configurar variables de entorno (opcional):**
-
-   ```bash
-   cp .env.example .env
-   # Editar .env con tus valores si es necesario
-   ```
-
-5. **Iniciar el servidor:**
+4. **Iniciar el servidor:**
 
    ```bash
    # Modo desarrollo (TypeScript con nodemon - recomendado)
@@ -61,11 +55,11 @@ Una API de mensajería básica desarrollada con **TypeScript**, Node.js y Expres
    npm start
    ```
 
-6. **Verificar que funciona:**
+5. **Verificar que funciona:**
    - Abrir http://localhost:3000 en el navegador
    - Deberías ver la información de la API
 
-7. **Verificar calidad de código (opcional):**
+6. **Verificar calidad de código (opcional):**
    ```bash
    npm run lint          # Revisar código con ESLint
    npm run lint:fix      # Corregir automáticamente errores
@@ -261,22 +255,6 @@ La API incluye WebSockets para mensajes en tiempo real:
 - **Room del chat:** `chat-room`
 - **Evento de mensajes nuevos:** `new-message`
 
-## 📝 Scripts Disponibles
-
-```bash
-# Desarrollo
-npm run dev              # Ejecutar en modo desarrollo (TypeScript + nodemon)
-npm run build:watch      # Compilar TypeScript en modo watch
-
-# Producción
-npm run build           # Compilar TypeScript a JavaScript
-npm start               # Ejecutar servidor en producción (requiere build)
-
-# Calidad de código
-npm run lint            # Analizar código con ESLint
-npm run lint:fix        # Corregir automáticamente errores de ESLint
-```
-
 ## 🧪 Testing
 
 ### Health Check
@@ -294,13 +272,16 @@ Authorization: Bearer YOUR_JWT_TOKEN
 
 ## 🔧 Configuración
 
-### Variables de Entorno
+### Valores Hardcodeados
 
-| Variable     | Descripción            | Default                         |
-| ------------ | ---------------------- | ------------------------------- |
-| `PORT`       | Puerto del servidor    | `3000`                          |
-| `JWT_SECRET` | Clave secreta para JWT | `messaging-api-secret-key-2025` |
-| `NODE_ENV`   | Entorno de ejecución   | `development`                   |
+La aplicación utiliza valores de configuración hardcodeados en el archivo `src/config.ts` para simplificar el desarrollo:
+
+| Variable     | Valor                      | Descripción            |
+| ------------ | -------------------------- | ---------------------- |
+| `PORT`       | `3000`                     | Puerto del servidor    |
+| `JWT_SECRET` | `messaging-api-secret-key` | Clave secreta para JWT |
+
+**Nota:** Si necesitas cambiar estos valores, edita el archivo [src/config.ts](src/config.ts).
 
 ### Límites
 
