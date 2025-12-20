@@ -1,4 +1,4 @@
-# API de Mensajería para Evaluación Técnica
+# Torem - API de Mensajería para Evaluación Técnica
 
 Una API de mensajería básica desarrollada con **TypeScript**, Node.js y Express para evaluaciones técnicas de desarrollo móvil.
 
@@ -37,21 +37,12 @@ Una API de mensajería básica desarrollada con **TypeScript**, Node.js y Expres
 3. **Compilar TypeScript:**
 
    ```bash
-   # Compilar una vez
    npm run build
-
-   # Compilar en modo watch (recompila automáticamente)
-   npm run build:watch
    ```
 
 4. **Iniciar el servidor:**
 
    ```bash
-   # Modo desarrollo (TypeScript con nodemon - recomendado)
-   npm run dev
-
-   # Modo producción (JavaScript compilado)
-   npm run build
    npm start
    ```
 
@@ -59,11 +50,6 @@ Una API de mensajería básica desarrollada con **TypeScript**, Node.js y Expres
    - Abrir http://localhost:3000 en el navegador
    - Deberías ver la información de la API
 
-6. **Verificar calidad de código (opcional):**
-   ```bash
-   npm run lint          # Revisar código con ESLint
-   npm run lint:fix      # Corregir automáticamente errores
-   ```
 
 ## 🔐 Autenticación
 
@@ -254,36 +240,11 @@ La API incluye WebSockets para mensajes en tiempo real:
 - **Room del chat:** `chat-room`
 - **Evento de mensajes nuevos:** `new-message`
 
-## 🧪 Testing
-
-### Health Check
-
-```bash
-GET /api/messages/health
-```
-
-### Verificar Token
-
-```bash
-GET /api/auth/verify
-Authorization: Bearer YOUR_JWT_TOKEN
-```
-
-## 🔧 Configuración
-
-### Valores Hardcodeados
-
-La aplicación utiliza valores de configuración hardcodeados en el archivo `src/config.ts` para simplificar el desarrollo:
-
-| Variable     | Valor                      | Descripción            |
-| ------------ | -------------------------- | ---------------------- |
-| `PORT`       | `3000`                     | Puerto del servidor    |
-| `JWT_SECRET` | `messaging-api-secret-key` | Clave secreta para JWT |
-
-**Nota:** Si necesitas cambiar estos valores, edita el archivo [src/config.ts](src/config.ts).
-
 ### Límites
 
 - **Tamaño de imagen:** Máximo 5MB
 - **Tipos de imagen:** jpeg, jpg, png, gif, webp
 - **Paginación:** Máximo 50 mensajes por página
+
+
+## 🍀 Mucha suerte!
