@@ -236,7 +236,7 @@ Authorization: Bearer YOUR_JWT_TOKEN
 La API incluye WebSockets para mensajes en tiempo real:
 
 - **URL de conexión:** `http://localhost:8080`
-- **Evento para unirse:** `join-chat` con `{ username: "tu_usuario" }`
+- **Evento para unirse:** `join-chat` con `{ username: "testuser" }`
 - **Room del chat:** `chat-room`
 - **Evento de mensajes nuevos:** `new-message`
 
