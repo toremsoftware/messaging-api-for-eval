@@ -47,7 +47,7 @@ Una API de mensajería básica desarrollada con **TypeScript**, Node.js y Expres
    ```
 
 5. **Verificar que funciona:**
-   - Abrir http://localhost:3000 en el navegador
+   - Abrir http://localhost:8080 en el navegador
    - Deberías ver la información de la API
 
 
@@ -235,7 +235,7 @@ Authorization: Bearer YOUR_JWT_TOKEN
 
 La API incluye WebSockets para mensajes en tiempo real:
 
-- **URL de conexión:** `http://localhost:3000`
+- **URL de conexión:** `http://localhost:8080`
 - **Evento para unirse:** `join-chat` con `{ username: "tu_usuario" }`
 - **Room del chat:** `chat-room`
 - **Evento de mensajes nuevos:** `new-message`
